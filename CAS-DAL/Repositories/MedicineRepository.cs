@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,11 @@ namespace CAS_DAL.Repositories
 {
     public class MedicineRepository : BaseRepository
     {
+        MyContext c = null;
+        public MedicineRepository()
+        {
+            c = new MyContext();
+        }
 
         public IEnumerable<Medicine> GetMedicinesAllForPatientAndDoctor()                 
         {
@@ -82,6 +88,11 @@ namespace CAS_DAL.Repositories
                 return true;
             else
                 return false;
+        }
+
+        public List<Medicine> GetAllMeds()
+        {
+            return c.Medicines.ToList();
         }
     }
 }

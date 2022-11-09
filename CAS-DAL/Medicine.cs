@@ -11,9 +11,13 @@ namespace CAS_DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Medicine
+    using System.ComponentModel.DataAnnotations;
+    using System.Data.Entity;
+
+    public class Medicine
     {
+        [Required()]
+        [Key]
         public int MedicineId { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
@@ -21,5 +25,9 @@ namespace CAS_DAL
         public bool IsAvailable { get; set; }
         public double Tax { get; set; }
         public bool IsActive { get; set; }
+    }
+    public class MyContext: DbContext
+    {
+        public virtual DbSet<Medicine> Medicines { get; set; }
     }
 }

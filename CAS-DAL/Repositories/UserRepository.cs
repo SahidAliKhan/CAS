@@ -117,5 +117,15 @@ namespace CAS_DAL.Repositories
                 Where(u => u.Email == email && u.Password == password).FirstOrDefault();
             return user;
         }
+
+        public int AddPat(User item)
+        {
+            myContext.Users.Add(item);
+            int result = myContext.SaveChanges();
+            if (result > 0)
+                return item.UserId;
+            else
+                return 0;
+        }
     }
 }

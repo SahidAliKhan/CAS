@@ -71,6 +71,7 @@
     <Compile Include="Doctor.cs">
       <DependentUpon>ClinicalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MedAPIDAL.cs" />
     <Compile Include="Medicine.cs">
       <DependentUpon>ClinicalModel.tt</DependentUpon>
     </Compile>

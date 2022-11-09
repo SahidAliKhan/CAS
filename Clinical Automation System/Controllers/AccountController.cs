@@ -22,10 +22,6 @@ namespace Clinical_Automation_System.Controllers
             return View();
         }
 
-
-
-
-
         // GET: /Account/Login
         [HttpGet]
         public ActionResult Login()
@@ -159,6 +155,58 @@ namespace Clinical_Automation_System.Controllers
             ViewBag.Edit = true;
             User u = userRepository.GetById(usr.UserId);
             return View(u);
+        }
+
+        [HttpGet]
+        public ActionResult AddPatient()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPatient(User user)
+        {
+            int res = userRepository.Add(user);
+            return RedirectToAction("PatientLogin");
+        }
+
+        [HttpGet]
+        public ActionResult PatientLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PatientLogin(string inputEmail, string inputPassword)
+        {
+            User user = userRepository.LoginUsingEmailAndPassword(inputEmail, inputPassword);
+            if (user == null)
+            {
+                Session["Invalid"] = true;
+                return View();
+            }
+            else
+            {
+                Session["UserId"] = user.UserId;
+                Session["Name"] = user.Name;
+                Session["RoleId"] = user.RoleId;
+                //'Patient'
+                if (user.RoleId == 3)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Patient",
+                        action = "index",
+                    });
+                }
+                else
+                {
+                    return View();
+                }
+
+
+            }
+
         }
     }
 }
