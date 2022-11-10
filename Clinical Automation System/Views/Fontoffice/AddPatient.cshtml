@@ -5,6 +5,13 @@
     ViewBag.Title = "Add Patient";
 }
 <br />
+
+<script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+</script>
+
 <ol class="breadcrumb">
     <li class="breadcrumb-item active">Add Patient:</li>
 </ol>

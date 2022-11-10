@@ -5,6 +5,13 @@
     ViewBag.Title = "View Appointment";
 }
 <br />
+
+<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
 <ol class="breadcrumb">
     <li class="breadcrumb-item active">Doctor's Appointments:</li>
 </ol>
