@@ -32,6 +32,10 @@
                         <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
                     </div>
                     <button type="submit" class="btn btn-black">Login</button>
+                    <div>
+                        @Html.ActionLink("Reset Password", "ForgetPassword")
+                    </div>
+
                     <hr />
                     @if (Session["Invalid"] == null)
                     {

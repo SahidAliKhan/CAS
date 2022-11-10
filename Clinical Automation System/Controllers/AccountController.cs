@@ -26,7 +26,7 @@ namespace Clinical_Automation_System.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-             return View();
+            return View();
         }
 
         [HttpPost]
@@ -96,11 +96,10 @@ namespace Clinical_Automation_System.Controllers
                     return View();
                 }
 
-               
-            }
-            
-        }
 
+            }
+
+        }
 
         [HttpPost]
         public ActionResult Logout()
@@ -127,14 +126,7 @@ namespace Clinical_Automation_System.Controllers
         [HttpGet]
         public ActionResult EditUser()
         {
-            if ((int)Session["userid"] == 0)
-            {
-                return RedirectToRoute(new
-                {
-                    controller = "account",
-                    action = "login",
-                });
-            }
+           
             User u = userRepository.GetById((int)Session["UserId"]);
             RedirectToAction("Index");
             ViewBag.Edit = false;
@@ -203,10 +195,7 @@ namespace Clinical_Automation_System.Controllers
                 {
                     return View();
                 }
-
-
             }
-
         }
     }
 }
