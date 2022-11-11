@@ -38,24 +38,82 @@ namespace Clinical_Automation_System.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        [Route("GetMedsByID/{id}")]
+        public MedicineViewModel Get(int id)
         {
-            return "value";
+            MedicineViewModel r = new MedicineViewModel();
+            Medicine p = new Medicine();
+            p = ms.GetMedsByid(id);
+
+            r.MedicineId = Convert.ToInt32(p.MedicineId);
+            r.Name = p.Name.ToString();
+            r.Price = Convert.ToInt32(p.Price);
+            r.Stock = Convert.ToInt32(p.Stock);
+            r.Tax = Convert.ToInt32(p.Tax);
+            return r;
         }
 
         // POST api/<controller>
-        public void Post([FromBody] string value)
+        [Route("SavingMeds")]
+        public HttpResponseMessage Post([FromBody] MedicineViewModel value)
         {
+            Medicine r = new Medicine();
+            r.MedicineId = value.MedicineId;
+            r.Name = value.Name;
+            r.Price = value.Price;
+            r.Stock = value.Stock;
+            r.Tax = value.Tax;
+            r.IsAvailable = value.IsAvailable;
+            r.IsActive = value.IsActive;
+
+            bool k = ms.AddMeds(r);
+            if (k)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable);
+            }
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
+        [Route("UpdateMeds/{id}")]
+        public HttpResponseMessage Put(int id, [FromBody] MedicineViewModel value)
         {
+            Medicine r = new Medicine();
+            r.MedicineId = value.MedicineId;
+            r.Name = value.Name;
+            r.Price = value.Price;
+            r.Stock = value.Stock;
+            r.Tax = value.Tax;
+            r.IsAvailable = value.IsAvailable;
+            r.IsActive = value.IsActive;
+
+            bool k = ms.UpdateMeds(id, r);
+            if (k)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable);
+            }
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        [Route("DeleteMeds/{id}")]
+        public HttpResponseMessage Delete(int id)
         {
+            bool k = ms.DeleteMeds(id);
+            if (k)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable);
+            }
         }
     }
 }
