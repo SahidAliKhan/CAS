@@ -144,6 +144,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AppointmentAPIController.cs" />
+    <Compile Include="Controllers\DoctorAPIController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\FontofficeController.cs" />
     <Compile Include="Controllers\MedicineAPIController.cs" />
@@ -154,6 +156,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AppointmentModel.cs" />
+    <Compile Include="ViewModel\DoctorModel.cs" />
     <Compile Include="ViewModel\ForgotPS.cs" />
     <Compile Include="ViewModel\MedicineViewModel.cs" />
     <Compile Include="ViewModel\UserDoctorModel.cs" />
