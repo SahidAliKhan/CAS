@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAS_DAL
+namespace CAS_BAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity;
-
-    public partial class Medicine
+    
+    public partial class Doctor
     {
-        public int MedicineId { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public int Stock { get; set; }
-        public bool IsAvailable { get; set; }
-        public double Tax { get; set; }
-        public bool IsActive { get; set; }
+        public int DoctorId { get; set; }
+        public bool IsAavailable { get; set; }
+        public int SpecializationId { get; set; }
+        public int UserId { get; set; }
+        public string Timings { get; set; }
+    
+        public virtual User User { get; set; }
+        public virtual Specialization Specialization { get; set; }
     }
 }

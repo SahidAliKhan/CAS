@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAS_DAL
+namespace CAS_BAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity;
-
+    
     public partial class Medicine
     {
         public int MedicineId { get; set; }

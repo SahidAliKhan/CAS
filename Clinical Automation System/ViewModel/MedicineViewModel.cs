@@ -13,5 +13,6 @@ namespace Clinical_Automation_System.ViewModel
         public int Stock { get; set; }
         public bool IsAvailable { get; set; }
         public float Tax { get; set; }
+        public bool IsActive { get; set; }
     }
 }

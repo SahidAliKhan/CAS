@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using CAS_DAL.Repositories;
 using CAS_DAL;
-
+using Clinical_Automation_System.ViewModel;
+using System.Threading.Tasks;
 
 namespace Clinical_Automation_System.Controllers
 {

@@ -7,21 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAS_DAL
+namespace CAS_BAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity;
-
-    public partial class Medicine
+    
+    public partial class Appointment
     {
-        public int MedicineId { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public int Stock { get; set; }
-        public bool IsAvailable { get; set; }
-        public double Tax { get; set; }
-        public bool IsActive { get; set; }
+        public int AppointmentId { get; set; }
+        public System.DateTime StartDateTime { get; set; }
+        public string Status { get; set; }
+        public string Details { get; set; }
+        public bool IsApprove { get; set; }
+        public int PatientId { get; set; }
+        public int DoctorId { get; set; }
+    
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }
