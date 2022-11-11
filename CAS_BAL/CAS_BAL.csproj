@@ -56,6 +56,8 @@
     <Compile Include="Appointment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentsDAL.cs" />
+    <Compile Include="DoctorDAL.cs" />
     <Compile Include="MedicineDAL.cs" />
     <Compile Include="Doctor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
