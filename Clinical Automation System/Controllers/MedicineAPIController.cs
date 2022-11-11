@@ -9,10 +9,10 @@ using Clinical_Automation_System.ViewModel;
 
 namespace Clinical_Automation_System.Controllers
 {
-    public class MedicineController : ApiController
+    public class MedicineAPIController : ApiController
     {
         MedicineDAL ms = null;
-        public MedicineController()
+        public MedicineAPIController()
         {
             ms = new MedicineDAL();
         }
