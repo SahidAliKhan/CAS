@@ -102,11 +102,7 @@ namespace CAS_DAL.Repositories
             User dbuser = GetById(item.UserId);
             dbuser.Phone = item.Phone;
             dbuser.Email = item.Email;
-            dbuser.Address = item.Address;
             dbuser.Password = item.Password;
-            dbuser.DOB = item.DOB;
-            dbuser.Gender = item.Gender;
-
             int result = myContext.SaveChanges();
             if (result > 0)
                 return true;
