@@ -102,6 +102,9 @@ namespace CAS_DAL.Repositories
             User dbuser = GetById(item.UserId);
             dbuser.Phone = item.Phone;
             dbuser.Email = item.Email;
+            dbuser.Address = item.Address;
+            dbuser.Password = item.Password;
+
             int result = myContext.SaveChanges();
             if (result > 0)
                 return true;
@@ -117,5 +120,15 @@ namespace CAS_DAL.Repositories
                 Where(u => u.Email == email && u.Password == password).FirstOrDefault();
             return user;
         }
+
+        public User LoginUsingEmailAndPhone(string email, string phone)
+        {
+            User user = myContext.Users
+                .Include("Role")
+                .OrderBy(u => u.UserId).
+                Where(u => u.Email == email && u.Phone == phone).FirstOrDefault();
+            return user;
+        }
+
     }
 }

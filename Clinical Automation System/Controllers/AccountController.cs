@@ -7,15 +7,19 @@ using CAS_DAL.Repositories;
 using CAS_DAL;
 using Clinical_Automation_System.ViewModel;
 using System.Threading.Tasks;
+using CAS_BAL;
+using User = CAS_DAL.User;
 
 namespace Clinical_Automation_System.Controllers
 {
     public class AccountController : Controller
     {
         UserRepository userRepository;
+        UsersDAL ad = null;
 
         public AccountController()
         {
+            ad = new UsersDAL();
             userRepository = new UserRepository();
         }
         public ActionResult WelcomePage()
@@ -191,6 +195,82 @@ namespace Clinical_Automation_System.Controllers
                         controller = "Patient",
                         action = "index",
                     });
+                }
+                else
+                {
+                    return View();
+                }
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgetPassword(string inputEmail, string inputPassword)
+        {
+            User user = userRepository.LoginUsingEmailAndPhone(inputEmail, inputPassword);
+            if (user == null)
+            {
+                Session["Invalid"] = true;
+                return View();
+            }
+            else
+            {
+                Session["UserId"] = user.UserId;
+                Session["Name"] = user.Name;
+                Session["RoleId"] = user.RoleId;
+                //'Administrator'
+                if (user.RoleId == 1)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Admin",
+                        action = "index",
+                    });
+                }
+                //'Doctor'
+                else if (user.RoleId == 2)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Account",
+                        action = "EditUser",
+                    });
+                }
+                //'Patient'
+                else if (user.RoleId == 3)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Account",
+                        action = "EditUser",
+                    });
+                }
+
+                //'Fontoffice'
+                else if (user.RoleId == 4)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Account",
+                        action = "EditUser",
+                    });
+                }
+
+                //'Pharmacy'
+                else if (user.RoleId == 5)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Account",
+                        action = "EditUser",
+                    });
+
                 }
                 else
                 {

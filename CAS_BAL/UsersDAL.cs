@@ -77,5 +77,19 @@ namespace CAS_BAL
                 return false;
             }
         }
+
+        public bool ForgetPS(string email, string phoneno)
+        {
+            bool ans = false;
+            var find = context.Users.ToList();
+            foreach (var item in find)
+            {
+                if(item.Email == email && item.Phone == phoneno)
+                {
+                    ans = true;
+                }
+            }
+            return ans;
+        }
     }
 }

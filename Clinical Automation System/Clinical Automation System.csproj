@@ -158,7 +158,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AppointmentModel.cs" />
     <Compile Include="ViewModel\DoctorModel.cs" />
-    <Compile Include="ViewModel\ForgotPS.cs" />
     <Compile Include="ViewModel\MedicineViewModel.cs" />
     <Compile Include="ViewModel\UserDoctorModel.cs" />
     <Compile Include="ViewModel\UserModel.cs" />
@@ -177,7 +176,7 @@
     <Content Include="images\appoint.jpg" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\doctor.jpg" />
-    <Content Include="images\patinet..jpg" />
+    <Content Include="images\patinet.jpg" />
     <Content Include="images\pharmacist.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -342,6 +341,7 @@
     <Content Include="Views\Admin\AddPharmacist.cshtml" />
     <Content Include="Views\Account\AddPatient.cshtml" />
     <Content Include="Views\Account\PatientLogin.cshtml" />
+    <Content Include="Views\Account\ForgetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
