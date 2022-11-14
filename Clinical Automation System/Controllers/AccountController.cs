@@ -229,8 +229,8 @@ namespace Clinical_Automation_System.Controllers
                 {
                     return RedirectToRoute(new
                     {
-                        controller = "Admin",
-                        action = "index",
+                        controller = "Account",
+                        action = "EditUser",
                     });
                 }
                 //'Doctor'
