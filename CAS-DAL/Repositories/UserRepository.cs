@@ -104,6 +104,8 @@ namespace CAS_DAL.Repositories
             dbuser.Email = item.Email;
             dbuser.Address = item.Address;
             dbuser.Password = item.Password;
+            dbuser.DOB = item.DOB;
+            dbuser.Gender = item.Gender;
 
             int result = myContext.SaveChanges();
             if (result > 0)
